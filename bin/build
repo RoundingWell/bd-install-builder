@@ -1,0 +1,24 @@
+#!/bin/sh
+hdiutil unmount "/Volumes/Bitdefender for MAC/"
+rm -f ./.tmp/rw_bd_arm.dmg > /dev/null
+rm -f ./.tmp/rw_bd_intel.dmg > /dev/null
+echo "Downloading installers"
+curl -o ./.tmp/rw_bd_arm.dmg "https://cloudgz.gravityzone.bitdefender.com/Packages/MAC/0/${BD_ID}/Bitdefender_for_MAC_ARM.dmg" &> /dev/null
+amd_download=$!
+curl -o ./.tmp/rw_bd_intel.dmg "https://cloudgz.gravityzone.bitdefender.com/Packages/MAC/0/${BD_ID}/Bitdefender_for_MAC.dmg" & > /dev/null
+intel_download=$!
+wait $amd_download $intel_download
+echo "Building ARM installer"
+hdiutil attach ./.tmp/rw_bd_arm.dmg > /dev/null
+pkgbuild --install-location ./.tmp/ --root "/Volumes/Bitdefender for MAC/" --scripts "./scripts" --identifier rwell.bitdefender_arm.pkg ./.tmp/rwell_bitdefender_arm.pkg > /dev/null
+echo "$(shasum -a 256 ./.tmp/rwell_bitdefender_arm.pkg)" > ./.tmp/rwell_bitdefender_arm.sig
+echo "Cleaning up ARM installer files"
+hdiutil unmount "/Volumes/Bitdefender for MAC/" > /dev/null
+rm ./.tmp/rw_bd_arm.dmg > /dev/null
+echo "Building Intel Installer"
+hdiutil attach ./.tmp/rw_bd_intel.dmg > /dev/null
+echo "$(shasum -a 256 ./.tmp/rwell_bitdefender_intel.pkg)" > ./.tmp/rwell_bitdefender_intel.sig
+pkgbuild --install-location ./.tmp/ --root "/Volumes/Bitdefender for MAC/" --scripts "./scripts" --identifier rwell.bitdefender_intel.pkg ./.tmp/rwell_bitdefender_intel.pkg > /dev/null
+echo "Cleaning up Intel installer files"
+hdiutil unmount "/Volumes/Bitdefender for MAC/"
+rm ./.tmp/rw_bd_intel.dmg > /dev/null

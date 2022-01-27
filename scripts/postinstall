@@ -1,0 +1,2 @@
+#!/bin/sh
+installer -pkg /tmp/antivirus_for_mac_arm.pkg -target /
