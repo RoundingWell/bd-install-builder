@@ -37,22 +37,28 @@ The following information can be used to set exclusions via MDM solutions to byp
 
 ### System Extensions
 
----
-Team ID: GUNFMW623Y
-Bundle ID's: com.bitdefender.FileProtect, com.bitdefender.atc, com.bitdefender.ExecAuth, com.bitdefender.SelfProtect, com.bitdefender.TMProtection
----
+**Team ID:** `GUNFMW623Y`
+**Bundle ID's:**
+
+* `com.bitdefender.FileProtect`
+* `com.bitdefender.atc`
+* `com.bitdefender.ExecAuth`
+* `com.bitdefender.SelfProtect`
+* `com.bitdefender.TMProtection`
 
 ### Kernel Extensions
 
----
-Team ID: GUNFMW623Y
-Bundle ID's: com.bitdefender.FileProtect, com.bitdefender.atc, com.bitdefender.ExecAuth, com.bitdefender.SelfProtect, com.bitdefender.TMProtection
----
+**Team ID:** `GUNFMW623Y`
+**Bundle ID's:**
+
+* `com.bitdefender.FileProtect`
+* `com.bitdefender.atc`
+* `com.bitdefender.ExecAuth`
+* `com.bitdefender.SelfProtect`
+* `com.bitdefender.TMProtection`
 
 ### File Access
 
----
-BundleID: com.bitdefender.epsecurity.BDLDaemonApp
-codeSigningRequirement: anchor apple generic and identifier "com.bitdefender.epsecurity.BDLDaemonApp" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = GUNFMW623Y)
-SystemSettings: FilePolicy:AllFiles
----
+**BundleID:** `com.bitdefender.epsecurity.BDLDaemonApp`
+**codeSigningRequirement:** `anchor apple generic and identifier "com.bitdefender.epsecurity.BDLDaemonApp" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = GUNFMW623Y)`
+**SystemSettings:** `FilePolicy:AllFiles`
