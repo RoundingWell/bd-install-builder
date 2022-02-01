@@ -17,8 +17,8 @@ echo "Cleaning up ARM installer files"
 hdiutil unmount "/Volumes/Bitdefender for MAC/"
 echo "Building Intel Installer"
 hdiutil attach ./.tmp/rw_bd_intel.dmg
-echo "$(shasum -a 256 ./.tmp/rwell_bitdefender_intel.pkg)" > ./.tmp/rwell_bitdefender_intel.sig
 pkgbuild --install-location ./.tmp/ --root "/Volumes/Bitdefender for MAC/" --scripts "./scripts" --identifier rwell.bitdefender_intel.pkg ./.tmp/rwell_bitdefender_intel.pkg
+echo "$(shasum -a 256 ./.tmp/rwell_bitdefender_intel.pkg)" > ./.tmp/rwell_bitdefender_intel.sig
 echo "Cleaning up Intel installer files"
 hdiutil unmount "/Volumes/Bitdefender for MAC/"
 rm -rf ./.tmp
