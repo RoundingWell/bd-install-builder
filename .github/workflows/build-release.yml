@@ -30,7 +30,7 @@ jobs:
         id: version
       - name: create-release
         uses: actions/create-release@v1
-        id: create_release
+        id: create-release
         with:
           draft: false
           prerelease: false
@@ -39,7 +39,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload ARM Installer
-        id: upload-release-asset
+        id: upload-arm-installer
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,7 +48,7 @@ jobs:
           asset_path: ./.tmp/rwell_bitdefender_arm.pkg
           asset_name: rwell_bitdefender_arm.pkg
       - name: Upload ARM Signature
-        id: upload-release-asset
+        id: upload-arm-signature
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -57,7 +57,7 @@ jobs:
           asset_path: ./.tmp/rwell_bitdefender_arm.sig
           asset_name: rwell_bitdefender_arm.sig
       - name: Upload Intel Installer
-        id: upload-release-asset
+        id: upload-intel-installer
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -66,7 +66,7 @@ jobs:
           asset_path: ./.tmp/rwell_bitdefender_intel.pkg
           asset_name: rwell_bitdefender_intel.pkg
       - name: Upload Intel Signature
-        id: upload-release-asset
+        id: upload-intel-signature
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
