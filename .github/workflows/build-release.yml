@@ -5,7 +5,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ main, test/filePersistence ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,6 +25,8 @@ jobs:
         env:
           BD_ID: ${{ secrets.BD_ID }}
         run:  bin/build
+      - name: ls-al
+        run: ls -al ./
       - name: version
         run: echo "::set-output name=version::$(date +%Y-%M-%d-%H-%M-%S)"
         id: version
