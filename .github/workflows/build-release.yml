@@ -35,7 +35,7 @@ jobs:
           draft: false
           prerelease: false
           release_name: ${{ steps.version.outputs.version }}
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.sha }}
           artifacts: ./.tmp/rwell_bitdefender_arm.pkgk, ./.tmp/rwell_bitdefender_arm.sig, ./.tmp/rwell_bitdefender_intel.pkg, ./.tmp/rwell_bitdefender_intel.sig
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
