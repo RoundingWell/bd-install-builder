@@ -26,7 +26,7 @@ jobs:
           BD_ID: ${{ secrets.BD_ID }}
         run:  bin/build
       - name: version
-        run: echo "::set-output name=version::$(date +%Y-%M-%d-%H-%M-%S)"
+        run: echo "::set-output name=version::$(date +%Y-%m-%d-%H-%M-%S)"
         id: version
       - name: create-release
         uses: actions/create-release@v1
